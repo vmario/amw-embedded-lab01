@@ -1,0 +1,54 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "options": {
+        "env": {
+            "TOOLCHAIN": "${config:toolchain}/bin/avr-",
+            "AVRDUDE": "${config:avrdude}",
+            "CONFIGURATION": "${command:cpptools.activeConfigName}",
+        }
+    },
+    "tasks": [
+        {
+            "label": "all",
+            "detail": "Build all files",
+            "type": "shell",
+            "command": "${config:make}",
+            "args": [
+                "all",
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false,
+            },
+            "problemMatcher": [
+                "$gcc",
+            ],
+        },
+        {
+            "label": "clean",
+            "detail": "Clean project",
+            "type": "shell",
+            "command": "${config:make}",
+            "args": [
+                "clean",
+            ],
+            "group": {
+                "kind": "build",
+            },
+        },
+        {
+            "label": "program",
+            "detail": "Build and program the target",
+            "type": "shell",
+            "command": "${config:make}",
+            "args": [
+                "program",
+            ],
+            "group": {
+                "kind": "build",
+            },
+        },
+    ]
+}
