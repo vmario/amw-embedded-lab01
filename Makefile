@@ -38,16 +38,16 @@ CFLAGS += -Os -flto
 CXXFLAGS = -mmcu=$(MCU_TARGET)
 CXXFLAGS += -MD -MP -MF $(DEPDIR)/$(@F).d
 CXXFLAGS += -Wa,-adhlns=$(<:%.cpp=$(OBJDIR)/%.lst)
-CXXFLAGS += -std=c++11 -Wall -Wundef -Wextra -pedantic
+CXXFLAGS += -std=c++14 -Wall -Wundef -Wextra -pedantic
 CXXFLAGS += -Os -flto -fno-exceptions
 LDFLAGS = -mmcu=$(MCU_TARGET)
 LDFLAGS += -Wl,-Map=$(TARGET).map,--cref
 LDFLAGS += -Os -flto
 DEFS = -DF_CPU=$(F_CPU)ul
 
-SRCS = main.c
-OBJS = $(addprefix $(OBJDIR)/,$(SRCS:.c=.o))
-DEPS = $(addprefix $(DEPDIR)/,$(SRCS:.c=.d))
+SRCS = main.cpp
+OBJS = $(addprefix $(OBJDIR)/,$(SRCS:.cpp=.o))
+DEPS = $(addprefix $(DEPDIR)/,$(SRCS:.cpp=.d))
 TARGET = $(TARGETDIR)/laboratory01
 
 all: sizebefore build sizeafter
