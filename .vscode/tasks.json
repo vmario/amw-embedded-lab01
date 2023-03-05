@@ -50,5 +50,17 @@
                 "kind": "build",
             },
         },
+        {
+            "label": "erase",
+            "detail": "Erase the target",
+            "type": "shell",
+            "command": "${config:make}",
+            "args": [
+                "erase",
+            ],
+            "group": {
+                "kind": "build",
+            },
+        },
     ]
 }

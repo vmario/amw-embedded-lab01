@@ -99,6 +99,9 @@ clean:
 program: all
 	$(AVRDUDE) -c usbasp -p $(MCU_TARGET) -U flash:w:$(TARGET).hex:i
 
+erase:
+	$(AVRDUDE) -c usbasp -p $(MCU_TARGET) -e
+
 reset:
 	$(AVRDUDE) -c usbasp -p $(MCU_TARGET) -v
 
